@@ -19,7 +19,7 @@ MAKEFLAGS += --no-builtin-rules
 
 # Shortcuts
 DOCKER = $(shell which docker)
-DOCKER_COMPOSE = $(DOCKER) compose
+DOCKER_COMPOSE = $(shell which docker-compose)
 HTTPIE = docker run --network=host -ti --rm alpine/httpie
 APP_SHELL = $(DOCKER_COMPOSE) --env-file=.env.docker.dist run --rm app
 PHP = $(APP_SHELL) php
