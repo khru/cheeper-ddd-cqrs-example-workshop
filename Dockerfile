@@ -7,6 +7,7 @@ RUN apt-get update \
     && apt-get -y install librabbitmq-dev \
                           libicu-dev \
                           libzip-dev \
+                          unzip \
                           $PHPIZE_DEPS \
     && docker-php-ext-install pdo_mysql mysqli pcntl bcmath intl zip \
     && pecl install redis \
@@ -18,6 +19,6 @@ RUN apt-get update \
 
 FROM prod AS local
 
-RUN apt-get -y install git \
+RUN apt-get -y install git httpie \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
